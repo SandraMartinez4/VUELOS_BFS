@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vuelos BFS</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #48062f, #00f2fe);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+        button {
+            background: #a2ff00;
+            color: white;
+            cursor: pointer;
+        }
+        .ruta {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Vuelos(BFS</h1>
+        <form method="POST">
+            <select name="origen">
+                {% for c in ciudades %}
+                <option value="{{c}}">{{c}}</option>
+                {% endfor %}
+            </select>
+            <select name="destino">
+                {% for c in ciudades %}
+                <option value="{{c}}">{{c}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit">Buscar Ruta</button>
+        </form>
+
+        {% if ruta %}
+            <div class="ruta">
+                <h3>Ruta encontrada:</h3>
+                {{ ruta }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
